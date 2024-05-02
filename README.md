@@ -17,6 +17,12 @@ Ejecuta el archivo Main.java para comenzar el programa.
 - Validando que el usuario solo pueda dar valores numericos entre 0 y 5.
 - Se calculará la media de las evaluaciones sumando las notas de evaluacion y divideindolas en 3 y la mostrará al usuario con dos decimales.
 
+  
+
+https://github.com/JoseFernandoReyes/ScreenMatchJava/assets/120635498/0843c796-139f-476a-84fb-6e1bbe7e61cc
+
+
+
 ##### Utilidades
 - import java.util.Scanner;
 Para la captura de datos por teclado.
