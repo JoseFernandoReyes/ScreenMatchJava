@@ -36,7 +36,9 @@ public class Main {
         double mediaEvalucionUsuario = 0;
 
         System.out.println("Ahora vamos a evaluar la pelicula Forrest Gump");
-        for (int i = 0; i < 3; i++) {
+        int i  = 0;
+        while (i<3){
+
             Scanner teclado = new Scanner(System.in);//instancia teclado como clase Scanner
             double notaForrestGump = 0;
             do {
@@ -55,7 +57,7 @@ public class Main {
             } while (notaForrestGump < 0 || notaForrestGump > 5);
 
             mediaEvalucionUsuario = mediaEvalucionUsuario + notaForrestGump;
-
+            i++;
         }
         double mediaFinal = mediaEvalucionUsuario / 3;
         DecimalFormat formatoDosDecimales = new DecimalFormat("#.##");
