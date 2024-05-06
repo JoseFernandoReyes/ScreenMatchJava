@@ -11,6 +11,10 @@ Clona o descarga el proyecto desde este repositorio.
 Abre el proyecto en tu IDE o editor de texto.
 Ejecuta el archivo Main.java para comenzar el programa.
 
+
+https://github.com/JoseFernandoReyes/ScreenMatchJava/assets/120635498/f8edc55a-8740-4893-a066-ca9ce09c77f4
+
+
 ##### Uso
 - Un menu con opciones para el usuario
 - Pude resgistrar Peliculas, Series o Documentales
