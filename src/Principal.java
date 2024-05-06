@@ -10,7 +10,10 @@ public class Principal {
         int opcion = 0;
         String tipo;
         Scanner teclado = new Scanner(System.in);
+        int totalMaraton = 0;
         while (opcion != 9){
+
+
             String menu = """
                     Bienvenid(a) a ScreenMatch
                     1) Registrar Nueva Pelicula 
@@ -26,17 +29,22 @@ public class Principal {
                 switch (opcion) {
                     case 1:
                         tipo = "la Pelicula";
-                        capturarDatos(tipo);
+                        totalMaraton +=capturarDatos(tipo);
                         break;
 
                     case 2:
                         tipo = "la Serie";
-                        capturarDatos(tipo);
+                        totalMaraton +=capturarDatos(tipo);
                         break;
 
                     case 3:
                         tipo = "el Documental";
-                        capturarDatos(tipo);
+                        totalMaraton +=capturarDatos(tipo);
+                        break;
+
+                    case 4:
+                        System.out.println("lo registrado hasta el momento suma un total de "+totalMaraton+" minutos");
+                        System.out.println("\n");
                         break;
 
                     case 9:
@@ -59,7 +67,9 @@ public class Principal {
         }
     }
 
-    public void capturarDatos(String tipo){
+    public int capturarDatos(String tipo){
+
+        int duracion = 0;
 
         Scanner teclado = new Scanner(System.in);
         System.out.println("Registrando "+tipo);
@@ -87,6 +97,8 @@ public class Principal {
             peliculaUsuario.mostrarFichaTecnica();
             System.out.println("Director: " + director);
             System.out.println("\n");
+
+            duracion = duracionEnMinutos;
         }
 
         if (tipo == "la Serie"){
@@ -108,6 +120,8 @@ public class Principal {
             System.out.println("\n");
             serieUsuario.mostrarFichaTecnica();
             System.out.println("\n");
+
+            duracion = serieUsuario.getTiempoDeDuracionEnMinutos();
         }
 
         if (tipo == "el Documental"){
@@ -126,7 +140,11 @@ public class Principal {
             documentalUsuario.mostrarFichaTecnica();
             System.out.println("Director: " + director);
             System.out.println("\n");
+
+            duracion = duracionEnMinutos;
         }
+
+        return duracion;
 
 
     }
