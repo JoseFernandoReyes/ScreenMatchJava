@@ -1,4 +1,6 @@
+import modelo.Documental;
 import modelo.Pelicula;
+import modelo.Serie;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -13,7 +15,8 @@ public class Principal {
                     Bienvenid(a) a ScreenMatch
                     1) Registrar Nueva Pelicula 
                     2) Registrar Nueva Serie
-                    3) Calculadora de maratones
+                    3) Registrar Documental
+                    4) Calculadora de maratones
                     9) Salir
                     """;
             System.out.println(menu);
@@ -22,26 +25,18 @@ public class Principal {
                 teclado.nextLine();
                 switch (opcion) {
                     case 1:
-                        System.out.println("Registrando Pelicula");
-                        System.out.println("ingrese el nombre de la Pelicula");
-                        String nombre = teclado.nextLine();
-                        System.out.println("ingrese el año de lanzamiento de la Pelicula");
-                        int fechaDeLanzamiento = teclado.nextInt();
-                        teclado.nextLine();
-                        System.out.println("ingrese la duracion en minutos de la Pelicula");
-                        int duracionEnMinutos = teclado.nextInt();
-                        teclado.nextLine();
-                        Pelicula peliculaUsuario = new Pelicula();
-                        peliculaUsuario.setNombre(nombre);
-                        peliculaUsuario.setFechaDeLanzamiento(fechaDeLanzamiento);
-                        peliculaUsuario.setTiempoDeDuracionEnMinutos(duracionEnMinutos);
-                        peliculaUsuario.mostrarFichaTecnica();
+                        tipo = "la Pelicula";
+                        capturarDatos(tipo);
                         break;
 
                     case 2:
+                        tipo = "la Serie";
+                        capturarDatos(tipo);
                         break;
 
                     case 3:
+                        tipo = "el Documental";
+                        capturarDatos(tipo);
                         break;
 
                     case 9:
@@ -62,5 +57,77 @@ public class Principal {
                 teclado.nextLine();
             }
         }
+    }
+
+    public void capturarDatos(String tipo){
+
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Registrando "+tipo);
+        System.out.println("Ingrese el nombre de "+ tipo);
+        String nombre = teclado.nextLine();
+        System.out.println("Ingrese el año de lanzamiento de "+tipo);
+        int fechaDeLanzamiento = teclado.nextInt();
+        teclado.nextLine();
+
+
+        if (tipo == "la Pelicula"){
+            Pelicula peliculaUsuario = new Pelicula();
+            peliculaUsuario.setNombre(nombre);
+            peliculaUsuario.setFechaDeLanzamiento(fechaDeLanzamiento);
+
+            System.out.println("Ingrese la duracion en minutos de "+tipo);
+            int duracionEnMinutos = teclado.nextInt();
+            teclado.nextLine();
+            peliculaUsuario.setTiempoDeDuracionEnMinutos(duracionEnMinutos);
+            System.out.println("Ingrese el director de la Pelicula");
+            String director = teclado.nextLine();
+            System.out.println("\n");
+            peliculaUsuario.setDirector(director);
+
+            peliculaUsuario.mostrarFichaTecnica();
+            System.out.println("Director: " + director);
+            System.out.println("\n");
+        }
+
+        if (tipo == "la Serie"){
+            Serie serieUsuario = new Serie();
+            serieUsuario.setNombre(nombre);
+            serieUsuario.setFechaDeLanzamiento(fechaDeLanzamiento);
+            System.out.println("Ingrese la cantidad de temporadas de "+tipo);
+            int cantidadDeTemporadas = teclado.nextInt();
+            teclado.nextLine();
+            serieUsuario.setTemporadas(cantidadDeTemporadas);
+            System.out.println("Ingrese la cantidad de episodios por temporadas de "+tipo);
+            int episodiosPorTemporada = teclado.nextInt();
+            teclado.nextLine();
+            serieUsuario.setEpisodiosPorTemporada(episodiosPorTemporada);
+            System.out.println("Ingrese la duracio de cada episodio de "+tipo);
+            int DuracionEnMinutosPorEpisodio = teclado.nextInt();
+            teclado.nextLine();
+            serieUsuario.setDuracionEnMinutosPorEpisodio(DuracionEnMinutosPorEpisodio);
+            System.out.println("\n");
+            serieUsuario.mostrarFichaTecnica();
+            System.out.println("\n");
+        }
+
+        if (tipo == "el Documental"){
+            Documental documentalUsuario = new Documental();
+            documentalUsuario.setNombre(nombre);
+            documentalUsuario.setFechaDeLanzamiento(fechaDeLanzamiento);
+            System.out.println("Ingrese la duracion en minutos de "+tipo);
+            int duracionEnMinutos = teclado.nextInt();
+            teclado.nextLine();
+            documentalUsuario.setTiempoDeDuracionEnMinutos(duracionEnMinutos);
+            System.out.println("Ingrese el director de el Documental");
+            String director = teclado.nextLine();
+            System.out.println("\n");
+            documentalUsuario.setDirector(director);
+
+            documentalUsuario.mostrarFichaTecnica();
+            System.out.println("Director: " + director);
+            System.out.println("\n");
+        }
+
+
     }
 }

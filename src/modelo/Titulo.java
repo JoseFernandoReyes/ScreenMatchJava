@@ -54,9 +54,9 @@ public class Titulo {
 
     public void mostrarFichaTecnica(){
         System.out.println("*****FICHA TÉCNICA*****");
-        System.out.println("Nombre del título: " + getTiempoDeDuracionEnMinutos());
+        System.out.println("Nombre del título: " + nombre);
         System.out.println("Fecha de lanzamiento: " + fechaDeLanzamiento);
-        System.out.println("Tiempo de Duracion: " + tiempoDeDuracionEnMinutos + " minutos");
-        System.out.println("\n");
+        System.out.println("Tiempo de Duracion: " + getTiempoDeDuracionEnMinutos() + " minutos");
+
     }
 }
